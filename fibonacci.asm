@@ -52,10 +52,11 @@ section .data
     len_newline: equ $-newline
 
     ; Error msgs
-    invalidAscii: db "Error: Invalid number entered.", 0xa
+    invalidAscii: db "Error: Invalid number entered. Only positive numberrs accepted.", 0xa
     len_invalidAscii: equ $-invalidAscii
+
     noTerms: db "No terms to be printed :)", 0xa
-    len_noTerms: equ $-len_invalidAscii
+    len_noTerms: equ $-noTerms
 
     ; Defining the first 2 terms
     t1: dd 0
@@ -192,7 +193,7 @@ executed:
 
 ; <1 terms to be printed
 noTerms_exit:
-    print noTerms, noTerms_exit
+    print noTerms, len_noTerms
     exit
 
 ; Only 1 term to be printed
